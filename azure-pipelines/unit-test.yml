@@ -7,10 +7,15 @@
 # - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: windows-latest
 
 steps:
-- script: |
-    make vet
-    make test
+- task: Bash@3
   displayName: unit test
+  inputs:
+    targetType: 'inline'
+    script: |
+      set -x
+      export "PATH=/c/hostedtoolcache/windows/go/1.15.6/x64/bin:$PATH"
+      go version
+      make vet
