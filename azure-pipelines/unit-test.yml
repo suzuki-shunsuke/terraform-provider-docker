@@ -19,5 +19,5 @@ steps:
       export "PATH=/c/hostedtoolcache/windows/go/1.15.6/x64/bin:$PATH"
       export "GOROOT=$GOROOT_1_15_X64"
       go version
-      make vet
-      make test
+      which gofmt
+      make fmtcheck
