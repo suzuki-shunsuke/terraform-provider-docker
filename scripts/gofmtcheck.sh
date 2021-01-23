@@ -2,6 +2,7 @@
 
 # Check gofmt
 echo "==> Checking that code complies with gofmt requirements..."
+git ls-files | grep -E "^.*\.go" | xargs gofmt -s -d
 gofmt_files=$(gofmt -s -l `find . -name '*.go' | grep -v vendor`)
 if [[ -n ${gofmt_files} ]]; then
     echo 'gofmt needs running on the following files:'
